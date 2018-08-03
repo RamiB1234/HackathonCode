@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Hackathon.Models.Account>
+
+
+<style>
+    /*.thumbnail {
+        padding: 0px;
+    }*/
+
+    .panel {
+        position: initial;
+    }
+
+        .panel > .panel-heading:after, .panel > .panel-heading:before {
+            position: absolute;
+            top: 11px;
+            left: -16px;
+            right: 100%;
+            width: 0;
+            height: 0;
+            display: block;
+            content: " ";
+            border-color: transparent;
+            border-style: solid solid outset;
+            pointer-events: none;
+        }
+
+        .panel > .panel-heading:after {
+            border-width: 7px;
+            border-right-color: #f7f7f7;
+            margin-top: 1px;
+            margin-left: 2px;
+        }
+
+        .panel > .panel-heading:before {
+            border-right-color: #ddd;
+            border-width: 8px;
+        }
+</style>
+
+<ul id="breadcrumbs" class="breadcrumb_container">
+    <li class="breadcrumb_e breadcrumb_before">&nbsp;</li>
+    <li class="breadcrumb_e breadcrumb_item"><span class="breadcrumb_e breadcrumb_icon_home"> </span>&nbsp @Html.ActionLink(" Home", "Index", "Home")</li>
+
+    <li class="breadcrumb_e breadcrumb_divider">&nbsp;</li>
+    <li class="breadcrumb_e breadcrumb_item">sub-Accounts</li>
+
+
+    <li class="breadcrumb_e breadcrumb_end">&nbsp;</li>
+</ul>
+
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.balance)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.balance)
+        </td>
+    </tr>
+}
+
+</table>
